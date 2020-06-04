@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>HodlSodl</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./web3.min.js"></script>
+    <script type="text/javascript" src="./abi.js"></script>
+    <script type="text/javascript" src="./HodlSodl_main.js?123"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <!--HEAD -->
+
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+          <div class="col-md-4">
+            <div class="jumbotron jumbotron">
+              <div class="container">
+                <h1 class="display-4">HODL / SODL</h1>
+                <p class="lead">get your Lambos </p>
+              </div>
+            </div>
+          </div>
+    <div class="col-md-3">
+    </div>
+    <div class="container col-md-1">
+      <button type="button" onclick="window.location.href = 'http://localhost:8000/HodlSodl_game_HTML.html';"id="goToGame_button" class="btn btn-primary">PLAY!</button>
+    </div>
+  </div>
+</div>
+  <!-- FINISHEAD -->
+  <!-- BODY -->
+    <div class="container col-md-3">
+      <div>
+        <h2>Create a profile</h2>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="name_input" placeholder="Username" >
+        </div>
+        <div class="input-group mb-3">
+          <input type="number" class="form-control" id="age_input" placeholder="Age">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="email_input" placeholder="Email">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" size="50" class="form-control" id="pin_input" placeholder="Pin">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="repeatPin_input" placeholder="Repeat Pin">
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" value="">I agree with the rules
+          </label>
+        </div>
+        <button type="button" id="register_button" class="btn btn-primary">REGISTER!</button>
+      </div>
+
+      <h2>..or, Remove a profile</h2>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="addressToUnregister_input" placeholder="Address to unregister">
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" value="">I want to unregister!
+        </label>
+      </div>
+      <button type="button" id="unregister_button" class="btn btn-primary">UNREGISTER!</button>
+
+    </div>
+    <!-- FINISHBODY -->
+
+
+  </body>
+</html>

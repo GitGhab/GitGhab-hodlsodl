@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Hodlsodl_game</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./web3.min.js"></script>
+    <script type="text/javascript" src="./abi.js"></script>
+    <script type="text/javascript" src="./HodlSodl_main.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  </head>
+  <body style="background: url(https://static.coindesk.com/wp-content/uploads/2017/08/charts-market-e1501553204818.jpg)">
+
+
+<!-- HEAD -->
+<div class="row">
+  <div class="col-md-4">
+  </div>
+    <div class="col-md-4">
+      <div class="jumbotron jumbotron" style="opacity: 0.7">
+      <div class="container">
+      <h1 class="display-4" style="text-align: center">HODL / SODL</h1>
+      <p class="lead" style="text-align: center">get your Lambos </p>
+      </div>
+      </div>
+    </div>
+  <div class="col-md-3" style="color:white ">
+    <h4 style="text-align: center">Player console</h4>
+      <button type="button" style="background-color:grey; opacity: 0.7" id="getPlayer_button" class="btn btn-primary">Who am I?</button>
+        <div style="color: #bfbfbf;text-shadow: 1px 1px black">
+          Name: <span style="margin-left: 70px;color: white" id="name_output"></span>
+        </div>
+        <div style="color: #bfbfbf;text-shadow: 1px 1px black">
+          age: <span style="margin-left: 85px;color: white" id="age_output"></span>
+        </div>
+        <div style="color: #bfbfbf;text-shadow: 1px 1px black">
+          e-mail: <span style="margin-left: 67px;color: white" id="email_output"></span>
+        </div>
+        <button type="button" style="background-color:grey; opacity: 0.7" id="myBalance_button" class="btn btn-primary">My Balance</button>
+        <div style="color: #bfbfbf;text-shadow: 1px 1px black">
+          Name: <span style="margin-left: 67px;color: white"id="nameBal_output"></span>
+        </div>
+        <div style="color: #bfbfbf;text-shadow: 1px 1px black">
+          My balance: <span style="margin-left: 27px;color: white" id="myBalance_output"></span>
+        </div>
+      <button type="button" style="opacity: 0.7" id="withdrawPlayer_button" class="btn btn-warning">withdraw</button>
+  </div>
+  <div class="col-md-1">
+    <button type="button" style="opacity: 0.7" onclick="window.location.href = 'http://localhost:8000/HodlSodl_reg_HTML.html';"id="goToReg_button" class="btn btn-primary">profiles</button>
+  </div>
+</div>
+<!-- FINISHEAD -->
+
+<!-- BODY -->
+<div class="row">
+      <div class="col-md-4" >
+            <div>
+            </div>
+      </div>
+      <div class="col-md-4">
+        <div class="container col-md-9">
+            <div>
+              <h3 style="text-align: center; color:white;text-shadow: 1px 1px black">make a choice...</h3>
+                <button type="button" style="padding: 15px 52px;text-align: center;opacity: 0.8" id="hodl_button" class="btn btn-success">HODL!</button>
+                <button type="button" style="padding: 15px 52px;text-align: center;opacity: 0.8" id="sodl_button" class="btn btn-danger">SODL!</button>
+                <h3 style="text-align: center; color:white; text-shadow: 1px 1px black">..press the BET button!</h3>
+                <div class="input-group mb-3">
+                  <input type="number" style="text-align: center" class="form-control" id="bet_amount_input" placeholder="Amount">
+                </div>
+                <button type="button"style="background-color:black;padding: 15px 140px;text-align: center;opacity: 0.7; color:white" id="makeBet_button" class="btn btn-basic">BET!</button>
+            </div>
+        </div>
+      </div>
+        <div class="col-md-3" style="color:white" >
+          <h4 style="text-align: center">Last Bet Result</h4>
+          <button type="button" style="background-color:grey; opacity: 0.7" id="myLastBet_button" class="btn btn-primary">Get result</button>
+          <div style="color: #bfbfbf;text-shadow: 1px 1px black;">
+            Name: <span style="margin-left: 69px;color: white" id="nameBet_output"></span>
+          </div>
+          <div style="color: #bfbfbf;text-shadow: 1px 1px black">
+            win: <span style="margin-left: 87px;color: white" id="win_output"></span>
+          </div>
+          <div style="color: #bfbfbf;text-shadow: 1px 1px black">
+            option chosen: <span style="margin-left: 7px;color: white" id="optionChosen_output"></span>
+          </div>
+          <div style="color: #bfbfbf;text-shadow: 1px 1px black">
+            Amount bid: <span style="margin-left: 26px;color: white" id="betAmount_output"></span>
+          </div>
+        </div>
+      <div class="col-md-1">
+    </div>
+  </div>
+
+
+    <!-- FINISHBODY -->
+
+
+
+  </body>
+</html>
