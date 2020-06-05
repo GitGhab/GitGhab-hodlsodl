@@ -3,7 +3,7 @@ var contractInstance;
 
 $(document).ready(function() {
     window.ethereum.enable().then(function(accounts){
-    	contractInstance = new web3.eth.Contract(abi,"0xf423b39AA90a55022811002f510f907a032F2787", {from: accounts[0]});
+    	contractInstance = new web3.eth.Contract(abi,"0x1E5EcD2467985b5AF0bb838643B4194d430Ba6fA", {from: accounts[0]});
    		console.log(contractInstance);
     });
       //REGPAGE
@@ -43,21 +43,25 @@ function inputData(){
 
 
 	contractInstance.methods.createPlayer(name, age, email, pin, repeatPin).send(config)
-	.on("transactionHash", function(hash){
-		console.log(hash);
-	})
-	.on("confirmation",function(confirmationNr){
-		console.log(confirmationNr);
-	})
-	.on("receipt", function(receipt){
-		console.log(receipt);
-		alert("Player created")
-	})
-
+  	.on("transactionHash", function(hash){
+  		console.log(hash);
+  	})
+  	.on("confirmation",function(confirmationNr){
+  		console.log(confirmationNr);
+  	})
+  	.on("receipt", function(receipt){
+  		console.log(receipt);
+  		alert("Player created")
+  	})
+    .on("error", function(error){
+         alert("oops, something went wrong!");
+    })
 }
 
+
+
 function deletePlayer(){
-	var name =$("#addressToUnregister_input").val();
+	var addressToUnregister =$("#addressToUnregister_input").val();
 
   contractInstance.methods.deletePlayer(addressToUnregister).send()
   .on("transactionHash", function(hash){
@@ -65,6 +69,9 @@ function deletePlayer(){
   })
   .on("confirmation",function(confirmationNr){
     console.log(confirmationNr);
+  })
+  .on("error", function(error){
+       alert("oops, something went wrong!");
   })
 }
 ///////////////////////§///////////////////////§///////////////////////§///////////////////////§///////////////////////§
@@ -97,6 +104,9 @@ function withdraw(){
   		console.log(receipt);
   		alert("withdrawn!")
   	})
+    .on("error", function(error){
+         alert("oops, something went wrong!");
+    })
   }
 
 
@@ -117,16 +127,17 @@ function withdraw(){
 
       contractInstance.methods.makeBet(optionChosen).send({value: betAmount})
         .on("receipt", function(receipt){
-          console.log(receipt);
-          console.log(receipt.events.placedBet.returnValues[3]);
 
-          if(receipt.events.placedBet.returnValues[3] == false){
-            alert("You lose, play again!")
-          }
-          else if(receipt.events.placedBet.returnValues[3] == true){
-            alert("You won, congratulations!")
+            if(receipt.events.placedBet.returnValues[3] == false){
+              alert("You lose, play again!")
             }
-      })
+            else if(receipt.events.placedBet.returnValues[3] == true){
+              alert("You won, congratulations!")
+            }
+        })
+        .on("error", function(error){
+             alert("oops, something went wrong!");
+        })
     }
 
   function getResult(){
